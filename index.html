@@ -6,23 +6,18 @@
   <title>Abacus</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
   <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="js/app.js"></script>
 </head>
 <body>
   <div id="calculator" class="container-fluid vcenter">
-    <div id="result" class="row">0</div>
     <div id="preview" class="row"></div>
-    <div class="row key-row">
-      <div class="col-xs-3 key">AC</div>
-      <div class="col-xs-3 key">*</div>
-      <div class="col-xs-3 key">/</div>
-      <div class="col-xs-3 key">DEL</div>
-    </div>
+    <div id="result" class="row">0</div>    
     <div class="row key-row">
       <div class="col-xs-9 key-group">
         <div class="container-fluid">
-          <div class="row key-row">
+          <div class="row">
             <div class="col-xs-4 key">7</div>
             <div class="col-xs-4 key">8</div>
             <div class="col-xs-4 key">9</div>
@@ -32,18 +27,20 @@
             <div class="col-xs-4 key">1</div>
             <div class="col-xs-4 key">2</div>
             <div class="col-xs-4 key">3</div>
+            <div class="col-xs-4 key">.</div>
+            <div class="col-xs-4 key">0</div>
+            <div class="col-xs-4 key">=</div>
+            <div class="col-xs-12 key">AC</div>
           </div>
         </div>
       </div>
-      <div class="col-xs-3 key-group">
+      <div class="col-xs-3" id="key-column">
+      <div class="key">DEL</div>
+      <div class="key">/</div>
+        <div class="key">*</div>
         <div class="key">-</div>
-        <div id="plus" class="key">+</div>
+        <div class="key">+</div>
       </div>
-    </div>
-    <div class="row key-row">
-      <div class="col-xs-3 key">.</div>
-      <div class="col-xs-3 key">0</div>
-      <div id="equals" class="col-xs-6 key">=</div>
     </div>
   </div>
 </body>

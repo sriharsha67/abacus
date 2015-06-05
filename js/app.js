@@ -40,35 +40,35 @@ showResult : function(key){
   $('#result').text(eval(preview));
 },
 
-  keyClick : function(key){
-    switch (key){
+keyClick : function(key){
+  switch (key){
 
-      case 'AC':
-      Abacus.clearPreview();
-      break;
+    case 'AC':
+    Abacus.clearPreview();
+    break;
 
-      case 'DEL':
-      Abacus.deleteChar();
-      break;
+    case 'DEL':
+    Abacus.deleteChar();
+    break;
 
-      case '=':
-      Abacus.showResult();
-      break;
+    case '=':
+    Abacus.showResult();
+    break;
 
-      default:
-        
-        if (key == '.' && Abacus.lastKeyWasDot) {
+    default:
+
+    if (key == '.' && Abacus.lastKeyWasDot) {
           // Do Nothing
         } else{
           if (['+','-','*','/'].indexOf(key) != -1 && Abacus.lastKeyWasOp) {
             Abacus.deleteChar();
           }
-        
+
           var preview=$('#preview').text();
           $('#preview').text(
             preview + key
             );
-          }
+        }
       }
 
       if (key == '.') {
@@ -82,21 +82,23 @@ showResult : function(key){
       } else {
         Abacus.lastKeyWasOp = true;
       }
-  },
+    },
 
-  keyPress: function(){
-    $(document).keypress(function(event) {
+    keyPress: function(){
+      $(document).unbind('keydown keypress').bind('keydown keypress', function(event) {
+        var keycode = event.keyCode || event.which;
+        console.log(keycode);
+        if (Abacus.keyCodes[keycode]) {
+          Abacus.keyClick(Abacus.keyCodes[keycode]);
+          // event.preventDefault();
+        }
+      });
+    }
+  };
 
-     var keycode = event.keyCode || event.which;
-     // console.log(keycode);
-     Abacus.keyClick(Abacus.keyCodes[keycode]);
-   });
-  }
-};
-
-$(document).ready(function(){
-  $('.key').click(function(event){
-    Abacus.keyClick($(this).text());
+  $(document).ready(function(){
+    $('.key').click(function(event){
+      Abacus.keyClick($(this).text());
+    });
+    Abacus.keyPress();
   });
-  Abacus.keyPress();
-});

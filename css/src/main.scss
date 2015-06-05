@@ -1,7 +1,4 @@
-$primary-color: #8e44ad; // Wisteria
-$lighter-primary-color: #9b59b6; //Amethyst
 $secondary-color: #ecf0f1; // Clouds
-
 
 .vcenter {
   position: relative;
@@ -10,61 +7,78 @@ $secondary-color: #ecf0f1; // Clouds
 }
 
 html {
-  background-color: $secondary-color;
+  // background-color: $secondary-color;
 
   body {
     height: 100vh;
+    font-family: 'Open Sans', sans-serif;
   }
 
   #calculator {
     width: 48vmin;
     height: 84vmin;
-    background-color: $lighter-primary-color;
     color: $secondary-color;
 
     #result {
-      background-color: #2c3e50;
-      height: 16vmin;
-      text-align: right;
-      line-height: 16vmin;
-      font-size: 8vmin;
-      padding: 0 2vmin;
-    }
-
-    #preview {
-      background-color: #7f8c8d;
+      background-color: $secondary-color;
       height: 8vmin;
       text-align: right;
       line-height: 8vmin;
-      font-size: 3vmin;
+      font-size: 4vmin;
       padding: 0 2vmin;
+      color:#34495E;
+    }
+
+    #preview {
+      background-color: $secondary-color ;
+      height: 16vmin;
+      text-align: right;
+      line-height: 16vmin;
+      font-size: 6vmin;
+      padding: 0 2vmin;
+      color:#34495E;
     }
 
     .key {
       padding: 0;
       height: 12vmin;
-      background-color: $primary-color;
       box-sizing: border-box;
       text-align: center;
       line-height: 12vmin;
       font-size: 3vmin;
 
-      &#plus {
-        height: 24vmin;
-        line-height: 24vmin;
-      }
+      // &:hover {
+      //   background-color: $lighter-primary-color;
+      // }
 
-      &:hover {
-        background-color: $lighter-primary-color;
-      }
-
-      &:active {
-        background-color: darken($primary-color, 5%);
-      }
+      // &:active {
+      //   background-color: darken($primary-color, 5%);
+      // }
     }
 
     .key-group {
       padding: 0;
+      background-color: #7f8c8d;
+    }
+
+    #key-column{
+      background-color: #36D7B7;
+      color:#ecf0f1;
+      padding: 0;
+      height: 60vmin;
+      box-sizing: border-box;
+      text-align: center;
+      line-height: 12vmin;
+      font-size: 3vmin;
+
+      // &:hover {
+      //   background-color: $lighter-primary-color;
+      // }
+
+      // &:active {
+      //   background-color: darken($primary-color, 5%);
+      // }
+
     }
   }
 } 
