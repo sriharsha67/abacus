@@ -31,74 +31,75 @@ Abacus={
  },
 
  deleteChar : function(key){
-  var preview=$('#preview').text();
-  $('#preview').text(preview.slice(0,preview.length-1));
-},
+    var preview=$('#preview').text();
+    $('#preview').text(preview.slice(0,preview.length-1));
+  },
 
-showResult : function(key){
-  var preview=$('#preview').text();
-  $('#result').text(eval(preview));
-},
+  showResult : function(key){
+    var preview=$('#preview').text();
+    $('#result').text(eval(preview));
+  },
 
-keyClick : function(key){
-  switch (key){
+  printKey: function(key){
+    // console.log(key);
+     if (key == '.' && Abacus.lastKeyWasDot) {
+                // Do Nothing
+      } else{
+            if (['+','-','*','/'].indexOf(key) != -1 && Abacus.lastKeyWasOp) {
+                  Abacus.deleteChar();
+            }
 
-    case 'AC':
-    Abacus.clearPreview();
-    break;
-
-    case 'DEL':
-    Abacus.deleteChar();
-    break;
-
-    case '=':
-    Abacus.showResult();
-    break;
-
-    default:
-
-    if (key == '.' && Abacus.lastKeyWasDot) {
-          // Do Nothing
-        } else{
-          if (['+','-','*','/'].indexOf(key) != -1 && Abacus.lastKeyWasOp) {
-            Abacus.deleteChar();
-          }
-
-          var preview=$('#preview').text();
-          $('#preview').text(
-            preview + key
+            var preview=$('#preview').text();
+            $('#preview').text(
+              preview + key
             );
-        }
+      }
+  },
+
+  keyClick : function(key){
+    switch (key){
+      case 'AC':
+          Abacus.clearPreview();
+          break;
+      case 'DEL':
+          Abacus.deleteChar();
+          break;
+      case '=':
+          Abacus.showResult();
+          break;
+      default:
+         Abacus.printKey(key);
       }
 
       if (key == '.') {
         Abacus.lastKeyWasDot = true;
       } else {
-        Abacus.lastKeyWasDot = false;
+          Abacus.lastKeyWasDot = false;
       }
 
       if (['+', '-', '*', '/'].indexOf(key) == -1) {
-        Abacus.lastKeyWasOp = false;
+         Abacus.lastKeyWasOp = false;
       } else {
-        Abacus.lastKeyWasOp = true;
+           Abacus.lastKeyWasOp = true;
       }
-    },
+  },
 
     keyPress: function(){
-      $(document).unbind('keydown keypress').bind('keydown keypress', function(event) {
-        var keycode = event.keyCode || event.which;
-        console.log(keycode);
-        if (Abacus.keyCodes[keycode]) {
-          Abacus.keyClick(Abacus.keyCodes[keycode]);
-          // event.preventDefault();
-        }
-      });
+        $(document).unbind('keypress').bind('keypress', function(event) {
+            var keycode = event.keyCode || event.which;
+            console.log(keycode);
+            console.log(Abacus.keyCodes[keycode]);
+            if (Abacus.keyCodes[keycode]) {
+            Abacus.keyClick(Abacus.keyCodes[keycode]);
+            // event.preventDefault();
+          }
+        });
     }
-  };
+};
 
-  $(document).ready(function(){
+$(document).ready(function(){
     $('.key').click(function(event){
-      Abacus.keyClick($(this).text());
+        Abacus.keyClick($(this).text());
     });
-    Abacus.keyPress();
-  });
+        Abacus.keyPress();
+});

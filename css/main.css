@@ -28,22 +28,30 @@ html #calculator {
     color: #34495E; }
   html #calculator .key {
     padding: 0;
+    background-color: #7f8c8d;
     height: 12vmin;
     box-sizing: border-box;
     text-align: center;
     line-height: 12vmin;
     font-size: 3vmin; }
+    html #calculator .key:hover {
+      background-color: #727f80; }
+    html #calculator .key:active {
+      background-color: #667273; }
   html #calculator .key-group {
-    padding: 0;
-    background-color: #7f8c8d; }
-  html #calculator #key-column {
+    padding: 0; }
+  html #calculator .key-column {
     background-color: #36D7B7;
     color: #ecf0f1;
     padding: 0;
-    height: 60vmin;
+    height: 12vmin;
     box-sizing: border-box;
     text-align: center;
     line-height: 12vmin;
     font-size: 3vmin; }
+    html #calculator .key-column:hover {
+      background-color: #28cbab; }
+    html #calculator .key-column:active {
+      background-color: #24b699; }
 
 /*# sourceMappingURL=main.css.map */

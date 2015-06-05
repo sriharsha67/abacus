@@ -1,4 +1,6 @@
-$secondary-color: #ecf0f1; // Clouds
+$primary-color: #ecf0f1; // Clouds
+$secondary-color:#7f8c8d;
+$light-primary: #36D7B7;
 
 .vcenter {
   position: relative;
@@ -7,7 +9,6 @@ $secondary-color: #ecf0f1; // Clouds
 }
 
 html {
-  // background-color: $secondary-color;
 
   body {
     height: 100vh;
@@ -17,10 +18,10 @@ html {
   #calculator {
     width: 48vmin;
     height: 84vmin;
-    color: $secondary-color;
+    color: $primary-color;
 
     #result {
-      background-color: $secondary-color;
+      background-color: $primary-color;
       height: 8vmin;
       text-align: right;
       line-height: 8vmin;
@@ -30,7 +31,7 @@ html {
     }
 
     #preview {
-      background-color: $secondary-color ;
+      background-color: $primary-color ;
       height: 16vmin;
       text-align: right;
       line-height: 16vmin;
@@ -41,43 +42,43 @@ html {
 
     .key {
       padding: 0;
+      background-color:$secondary-color ;
       height: 12vmin;
       box-sizing: border-box;
       text-align: center;
       line-height: 12vmin;
       font-size: 3vmin;
 
-      // &:hover {
-      //   background-color: $lighter-primary-color;
-      // }
+      &:hover {
+        background-color: darken($secondary-color, 5%);
+      }
 
-      // &:active {
-      //   background-color: darken($primary-color, 5%);
-      // }
+      &:active {
+        background-color: darken($secondary-color, 10%);
+      }
     }
 
     .key-group {
       padding: 0;
-      background-color: #7f8c8d;
     }
 
-    #key-column{
-      background-color: #36D7B7;
+    .key-column{
+      background-color:$light-primary;
       color:#ecf0f1;
       padding: 0;
-      height: 60vmin;
+      height: 12vmin;
       box-sizing: border-box;
       text-align: center;
       line-height: 12vmin;
       font-size: 3vmin;
 
-      // &:hover {
-      //   background-color: $lighter-primary-color;
-      // }
+      &:hover {
+        background-color: darken( $light-primary, 5%);;
+      }
 
-      // &:active {
-      //   background-color: darken($primary-color, 5%);
-      // }
+      &:active {
+        background-color: darken( $light-primary, 10%);
+      }
 
     }
   }
