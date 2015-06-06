@@ -18,7 +18,20 @@ Abacus={
     8: 'DEL',
     43: '+',
     45: '-',
-    46: '.'
+    46: '.',
+    97:'1',
+    98:'2',
+    99:'3',
+    100:'4',
+    101:'5',
+    102:'6',
+    103:'7',
+    104:'8',
+    105:'9',
+    107:'+',
+    109:'-',
+    106:'*',
+    111:'/'
   },
 
   lastKeyWasOp : false,
@@ -85,10 +98,9 @@ Abacus={
   },
 
     keyPress: function(){
-        $(document).unbind('keypress').bind('keypress', function(event) {
+        $(document).unbind('keydown').bind('keydown', function(event) {
             var keycode = event.keyCode || event.which;
             console.log(keycode);
-            console.log(Abacus.keyCodes[keycode]);
             if (Abacus.keyCodes[keycode]) {
             Abacus.keyClick(Abacus.keyCodes[keycode]);
             // event.preventDefault();
@@ -98,7 +110,7 @@ Abacus={
 };
 
 $(document).ready(function(){
-    $('.key').click(function(event){
+    $('.key,.key-column').click(function(event){
         Abacus.keyClick($(this).text());
     });
         Abacus.keyPress();

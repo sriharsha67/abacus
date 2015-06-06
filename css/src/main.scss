@@ -61,10 +61,10 @@ html {
     .key-group {
       padding: 0;
     }
-
+    
     .key-column{
       background-color:$light-primary;
-      color:#ecf0f1;
+      color: $primary-color;
       padding: 0;
       height: 12vmin;
       box-sizing: border-box;
